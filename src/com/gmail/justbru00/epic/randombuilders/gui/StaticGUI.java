@@ -1,0 +1,33 @@
+package com.gmail.justbru00.epic.randombuilders.gui;
+
+import org.bukkit.inventory.Inventory;
+
+public abstract class StaticGUI {
+	
+	public Inventory gui;	
+	private static StaticGUI instance = null;
+	
+	public StaticGUI() {
+		initGUI();
+		instance = this;
+	}
+	
+	public static StaticGUI getInstance() {
+		return instance;
+	}
+
+	public Inventory getGUI() {
+		return gui;		
+	}
+	
+	public String getName() {
+		return gui.getTitle();
+	}
+		
+	/**
+	 * Setup the gui items in this method. This includes the setup of the {@link gui} varible.
+	 * Make sure to set the title in the gui 
+	 */
+	public abstract void initGUI();
+	
+}

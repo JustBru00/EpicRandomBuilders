@@ -1,0 +1,20 @@
+name: ProjectR
+version: 0.1.0-ALPHA
+authors: [JustBru00]
+main: com.gmail.justbru00.epic.randombuilders.main.Main
+
+commands:
+  game:
+    description: Preforms game functions.
+  map:
+    description: Preforms map functions.
+  spec:
+    description: Changes you to a spectator.  
+  testloc:
+    description: Tests the locations. 
+  settime:
+    description: Sets the time  
+  lobby:
+    description: Lobby command     
+  hub:
+    description: Lobby command            
