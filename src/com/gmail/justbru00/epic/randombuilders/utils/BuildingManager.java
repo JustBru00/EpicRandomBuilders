@@ -7,7 +7,13 @@ import org.bukkit.Material;
 import org.bukkit.block.BlockState;
 
 import com.gmail.justbru00.epic.randombuilders.map.MapManager;
-
+/**
+ *   This Source Code Form is subject to the terms of the Mozilla Public
+ *   License, v. 2.0. If a copy of the MPL was not distributed with this
+ *   file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ * @author Justin Brubaker
+ *
+ */
 public class BuildingManager {
 
 	private static boolean canBreak = false;

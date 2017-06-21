@@ -9,7 +9,13 @@ import com.gmail.justbru00.epic.randombuilders.game.GameState;
 import com.gmail.justbru00.epic.randombuilders.map.MapManager;
 import com.gmail.justbru00.epic.randombuilders.utils.TopicManager;
 import com.gmail.justbru00.epic.randombuilders.vote.VoteManager;
-
+/**
+ *   This Source Code Form is subject to the terms of the Mozilla Public
+ *   License, v. 2.0. If a copy of the MPL was not distributed with this
+ *   file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ * @author Justin Brubaker
+ *
+ */
 public class StartupState extends BasicState {
 
 	public StartupState() {

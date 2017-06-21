@@ -10,7 +10,13 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 
-
+/**
+ *   This Source Code Form is subject to the terms of the Mozilla Public
+ *   License, v. 2.0. If a copy of the MPL was not distributed with this
+ *   file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ * @author Justin Brubaker
+ *
+ */
 public class RandomItemGiver {
 	// Give 54 stacks of 1-10 blocks of random stuff
 	

@@ -13,7 +13,13 @@ import com.gmail.justbru00.epic.randombuilders.chat.Messager;
 import com.gmail.justbru00.epic.randombuilders.game.GameManager;
 import com.gmail.justbru00.epic.randombuilders.game.GameState;
 import com.gmail.justbru00.epic.randombuilders.vote.VoteManager;
-
+/**
+ *   This Source Code Form is subject to the terms of the Mozilla Public
+ *   License, v. 2.0. If a copy of the MPL was not distributed with this
+ *   file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ * @author Justin Brubaker
+ *
+ */
 public class OnJoinAndLeaveListener implements Listener {
 	
 	@EventHandler

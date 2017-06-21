@@ -4,7 +4,13 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import com.gmail.justbru00.epic.randombuilders.chat.Messager;
-
+/**
+ *   This Source Code Form is subject to the terms of the Mozilla Public
+ *   License, v. 2.0. If a copy of the MPL was not distributed with this
+ *   file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ * @author Justin Brubaker
+ *
+ */
 public class GameAutoStartManager {
 
 	private static boolean autoStartEnabled = true;
