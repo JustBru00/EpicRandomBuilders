@@ -7,6 +7,7 @@ import com.gmail.justbru00.epic.randombuilders.chat.Messager;
 import com.gmail.justbru00.epic.randombuilders.game.GameManager;
 import com.gmail.justbru00.epic.randombuilders.game.GameState;
 import com.gmail.justbru00.epic.randombuilders.map.MapManager;
+import com.gmail.justbru00.epic.randombuilders.teams.TeamManager;
 import com.gmail.justbru00.epic.randombuilders.utils.TopicManager;
 import com.gmail.justbru00.epic.randombuilders.vote.VoteManager;
 /**
@@ -51,6 +52,8 @@ public class StartupState extends BasicState {
 		
 		// -> Announce during INSTRUCTIONS
 		TopicManager.chooseRandomTopic();		
+		
+		TeamManager.gameStarting();
 	}
 
 	@Override

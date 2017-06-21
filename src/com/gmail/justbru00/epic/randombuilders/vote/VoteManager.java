@@ -16,6 +16,7 @@ import com.gmail.justbru00.epic.randombuilders.chat.Messager;
 import com.gmail.justbru00.epic.randombuilders.game.GameManager;
 import com.gmail.justbru00.epic.randombuilders.game.GameState;
 import com.gmail.justbru00.epic.randombuilders.main.Main;
+import com.gmail.justbru00.epic.randombuilders.teams.TeamManager;
 import com.gmail.justbru00.epic.randombuilders.utils.ItemBuilder;
 /**
  *   This Source Code Form is subject to the terms of the Mozilla Public
@@ -69,7 +70,7 @@ public class VoteManager {
 	}
 	
 	public static void addVote(int amount, Player p) {
-		// TODO Make sure counter is not too low (below/= 3)| Put all votes in a HashMap of players with the vote they made
+		// DONE Make sure counter is not too low (below/= 3)| Put all votes in a HashMap of players with the vote they made
 		if (counter > 3) {
 			if (!p.getGameMode().equals(GameMode.SPECTATOR)) {
 				votes.put(p.getUniqueId(), amount);
@@ -120,7 +121,7 @@ public class VoteManager {
 				
 				if (VoteManager.inVotingMode) {
 					if (counter == 0) {
-						if (Bukkit.getOnlinePlayers().size() - 1 <= currentPlayer) {
+						if (TeamManager.getAmount() - 1 <= currentPlayer) {
 							if (currentPlayer != -1) { // Last player
 								// Record votes for this person 
 								int total = 0;

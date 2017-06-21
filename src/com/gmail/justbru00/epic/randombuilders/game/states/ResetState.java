@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 
 import com.gmail.justbru00.epic.randombuilders.game.GameManager;
 import com.gmail.justbru00.epic.randombuilders.game.GameState;
+import com.gmail.justbru00.epic.randombuilders.teams.TeamManager;
 import com.gmail.justbru00.epic.randombuilders.utils.BuildingManager;
 import com.gmail.justbru00.epic.randombuilders.vote.VoteManager;
 /**
@@ -48,6 +49,7 @@ public class ResetState extends BasicState {
 		VoteManager.buildAreas.clear();
 		VoteManager.inVotingMode = false;
 
+		TeamManager.reset();
 	}
 
 	@Override

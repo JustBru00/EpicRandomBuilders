@@ -12,6 +12,7 @@ import org.bukkit.event.player.PlayerLoginEvent.Result;
 import com.gmail.justbru00.epic.randombuilders.chat.Messager;
 import com.gmail.justbru00.epic.randombuilders.game.GameManager;
 import com.gmail.justbru00.epic.randombuilders.game.GameState;
+import com.gmail.justbru00.epic.randombuilders.teams.TeamManager;
 import com.gmail.justbru00.epic.randombuilders.vote.VoteManager;
 /**
  *   This Source Code Form is subject to the terms of the Mozilla Public
@@ -25,6 +26,7 @@ public class OnJoinAndLeaveListener implements Listener {
 	@EventHandler
 	public void onLeave(PlayerQuitEvent e) {
 		VoteManager.removeBuild(e.getPlayer(), true);
+		TeamManager.playerLeft(e.getPlayer());
 		if (Bukkit.getOnlinePlayers().size() - 1 < GameManager.getMinPlayers()) {
 			GameManager.setCurrentState(GameState.RESET);
 			Messager.sendTitleToAll("&cThere is not enough players", "");
@@ -33,12 +35,12 @@ public class OnJoinAndLeaveListener implements Listener {
 	
 	@EventHandler
 	public void preJoinevent(PlayerLoginEvent e) {
-		if (GameManager.getCurrentState().equals(GameState.WAIT) || GameManager.getCurrentState().equals(GameState.STARTINGSOON)) { // During a game
+		/*if (GameManager.getCurrentState().equals(GameState.WAIT) || GameManager.getCurrentState().equals(GameState.STARTINGSOON)) { // not During a game
 			e.getPlayer().setGameMode(GameMode.SURVIVAL);
 		} else {
 			e.disallow(Result.KICK_BANNED, Messager.color("&b&l&kOoOoO &6&lSorry the game is in progress. &b&l&kOoOoO"));
 			Messager.sendBC("&c" + e.getPlayer().getName() + " tried to join the game.");
-		}
+		}*/
 	}
 
 	@EventHandler
@@ -47,12 +49,11 @@ public class OnJoinAndLeaveListener implements Listener {
 		e.getPlayer().getInventory().clear();
 		e.getPlayer().setGameMode(GameMode.SURVIVAL);
 		
-		if (GameManager.getCurrentState().equals(GameState.WAIT) || GameManager.getCurrentState().equals(GameState.STARTINGSOON)) { // During a game
+		if (GameManager.getCurrentState().equals(GameState.WAIT) || GameManager.getCurrentState().equals(GameState.STARTINGSOON)) { // Not During a game
 			e.getPlayer().setGameMode(GameMode.SURVIVAL);
 		} else {
-			/*e.getPlayer().setGameMode(GameMode.SPECTATOR);
-			Messager.sendTitle("&6The game is in progress", "&7You will join next round", e.getPlayer());*/
-			
+			e.getPlayer().setGameMode(GameMode.SPECTATOR);
+			Messager.sendTitle("&6The game is in progress", "&7You will join next round", e.getPlayer());			
 		}
 	}
 	
