@@ -3,9 +3,15 @@ package com.gmail.justbru00.epic.randombuilders.chat;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.craftbukkit.v1_12_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 import com.gmail.justbru00.epic.randombuilders.main.Main;
+
+import net.minecraft.server.v1_12_R1.ChatMessageType;
+import net.minecraft.server.v1_12_R1.IChatBaseComponent;
+import net.minecraft.server.v1_12_R1.IChatBaseComponent.ChatSerializer;
+import net.minecraft.server.v1_12_R1.PacketPlayOutChat;
 /**
  *   This Source Code Form is subject to the terms of the Mozilla Public
  *   License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -15,9 +21,12 @@ import com.gmail.justbru00.epic.randombuilders.main.Main;
  */
 public class Messager {
 
-	/*public static void sendActionBar(String msg, Player player) {
-		ActionBarAPI.sendActionBar(player, Messager.color(msg));
-	}*/
+	public static void sendActionBar(String msg, Player player) {
+		msg = Messager.color(msg);
+		IChatBaseComponent cbc = ChatSerializer.a("{\"text\": \"" + msg + "\"}");
+        PacketPlayOutChat ppoc = new PacketPlayOutChat(cbc, ChatMessageType.GAME_INFO);       
+        ((CraftPlayer) player).getHandle().playerConnection.sendPacket(ppoc);
+	}
 	
 	public static String color(String uncolored){			
 		return ChatColor.translateAlternateColorCodes('&', uncolored);		

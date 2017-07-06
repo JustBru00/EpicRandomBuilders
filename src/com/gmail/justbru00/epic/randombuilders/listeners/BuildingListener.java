@@ -2,17 +2,13 @@ package com.gmail.justbru00.epic.randombuilders.listeners;
 
 import org.bukkit.GameMode;
 import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.EntityType;
-import org.bukkit.entity.FallingBlock;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockDamageEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityChangeBlockEvent;
-import org.bukkit.inventory.ItemStack;
-
 import com.gmail.justbru00.epic.randombuilders.chat.Messager;
 import com.gmail.justbru00.epic.randombuilders.map.MapManager;
 import com.gmail.justbru00.epic.randombuilders.utils.BuildingManager;
@@ -34,14 +30,15 @@ public class BuildingListener implements Listener {
 	    }
 	}
 	
+	@SuppressWarnings("deprecation")
 	@EventHandler
 	public void onBlockDamage(BlockDamageEvent e) {
 		if (BuildingManager.canBreak()) {
-			if (BuildingManager.checkBlock(e.getBlock().getLocation())) {
-				ItemStack silk = new ItemBuilder(Material.DIAMOND_PICKAXE).setAmount(1).build();
-				silk.addEnchantment(Enchantment.SILK_TOUCH, 1);
-				e.getBlock().breakNaturally(silk);	
-				e.setCancelled(true);
+			if (BuildingManager.checkBlock(e.getBlock().getLocation())) {				
+				e.setCancelled(false);
+				e.getPlayer().getInventory().addItem(new ItemBuilder(e.getBlock().getType()).setDataValue(e.getBlock().getData()).build());
+				e.getBlock().setType(Material.AIR);
+				Messager.sendActionBar("&aBlock added to inventory", e.getPlayer());
 			}
 		} else if (e.getPlayer().getGameMode().equals(GameMode.CREATIVE)){
 			
