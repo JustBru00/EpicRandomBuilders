@@ -3,11 +3,14 @@ package com.gmail.justbru00.epic.randombuilders.listeners;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.FallingBlock;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockDamageEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.entity.EntityChangeBlockEvent;
 import org.bukkit.inventory.ItemStack;
 
 import com.gmail.justbru00.epic.randombuilders.chat.Messager;
@@ -23,6 +26,13 @@ import com.gmail.justbru00.epic.randombuilders.utils.ItemBuilder;
  *
  */
 public class BuildingListener implements Listener {
+	
+	@EventHandler
+	public void onEntityChangeBlockEvent(EntityChangeBlockEvent event) {
+	    if (event.getEntityType() == EntityType.FALLING_BLOCK) {
+	       BuildingManager.addBlock(event.getBlock().getLocation());	        
+	    }
+	}
 	
 	@EventHandler
 	public void onBlockDamage(BlockDamageEvent e) {
