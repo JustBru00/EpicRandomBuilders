@@ -20,6 +20,7 @@ import com.gmail.justbru00.epic.randombuilders.listeners.GameCommandListener;
 import com.gmail.justbru00.epic.randombuilders.listeners.GeneralListeners;
 import com.gmail.justbru00.epic.randombuilders.listeners.OnJoinAndLeaveListener;
 import com.gmail.justbru00.epic.randombuilders.listeners.VoteListener;
+import com.gmail.justbru00.epic.randombuilders.listeners.VotingItemProtectListener;
 import com.gmail.justbru00.epic.randombuilders.map.MapManager;
 import com.gmail.justbru00.epic.randombuilders.scoreboard.EpicScoreBoard;
 import com.gmail.justbru00.epic.randombuilders.utils.RandomItemGiver;
@@ -62,6 +63,7 @@ public class Main extends JavaPlugin {
 		pm.registerEvents(new OnJoinAndLeaveListener(), plugin);
 		pm.registerEvents(new VoteListener(), plugin);
 		pm.registerEvents(new GeneralListeners(), plugin);
+		pm.registerEvents(new VotingItemProtectListener(), plugin);
 		
 		// REGISTER CUSTOM STUFF
 		GUIInstanceManager.initAllGUIS();

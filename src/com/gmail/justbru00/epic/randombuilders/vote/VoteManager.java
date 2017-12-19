@@ -62,7 +62,7 @@ public class VoteManager {
 		} 
 		
 		for (VoteManagerBuild v : buildAreas) {
-			if (v.getPlayer().equals(p.getUniqueId())) {
+			if (v.getPlayer().getUniqueId().equals(p.getUniqueId())) {
 				buildAreas.remove(v);
 				break;
 			}
@@ -73,8 +73,12 @@ public class VoteManager {
 		// DONE Make sure counter is not too low (below/= 3)| Put all votes in a HashMap of players with the vote they made
 		if (counter > 3) {
 			if (!p.getGameMode().equals(GameMode.SPECTATOR)) {
-				votes.put(p.getUniqueId(), amount);
-				Messager.sendTitle("", "&aVote counted", p);
+				if (p.getUniqueId().equals(getCurrentPlayer().getPlayer().getUniqueId())) {
+					Messager.sendTitle("", "&cYou cannot vote for yourself!", p);
+				} else {
+					votes.put(p.getUniqueId(), amount);
+					Messager.sendTitle("", "&aVote counted", p);
+				}
 			} else {
 				Messager.msgPlayer("&cSorry you cannot vote as a spectator.", p, "game");
 			}

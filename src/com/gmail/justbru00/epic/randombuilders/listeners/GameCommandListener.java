@@ -43,6 +43,9 @@ public class GameCommandListener implements Listener {
 				} else if (e.getCurrentItem().getType().equals(Material.REDSTONE_COMPARATOR)) {
 					if (GameAutoStartManager.isAutoStartEnabled()) {
 						GameAutoStartManager.setAutoStartEnabled(false);
+						if (GameManager.getCurrentState().equals(GameState.STARTINGSOON)) {
+							GameManager.setCurrentState(GameState.WAIT);
+						}
 						Messager.msgPlayer("&6Game auto toggled &coff&6.", (Player) e.getWhoClicked(), "default");
 					} else {
 						GameAutoStartManager.setAutoStartEnabled(true);
