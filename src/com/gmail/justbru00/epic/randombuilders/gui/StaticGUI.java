@@ -10,7 +10,8 @@ import org.bukkit.inventory.Inventory;
  */
 public abstract class StaticGUI {
 	
-	public Inventory gui;	
+	public Inventory gui;
+	String name;
 	private static StaticGUI instance = null;
 	
 	public StaticGUI() {
@@ -27,12 +28,12 @@ public abstract class StaticGUI {
 	}
 	
 	public String getName() {
-		return gui.getTitle();
+		return name;
 	}
 		
 	/**
 	 * Setup the gui items in this method. This includes the setup of the {@link gui} varible.
-	 * Make sure to set the title in the gui 
+	 * Make sure to set the {@link #name}
 	 */
 	public abstract void initGUI();
 	

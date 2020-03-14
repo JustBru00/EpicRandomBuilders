@@ -70,7 +70,6 @@ public class Main extends JavaPlugin {
 		MapManager.init();
 		VoteManager.init();
 		TopicManager.init();
-		RandomItemGiver.init();
 		getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 		
 		// RUN GameManager.everySecond()

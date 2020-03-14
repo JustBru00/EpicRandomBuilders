@@ -23,7 +23,7 @@ public class GameCommandListener implements Listener {
 	@EventHandler
 	public void onInventoryClick(InventoryClickEvent e) {
 		
-		if (e.getInventory().getTitle().equals(GameCommandGUI.getInstance().getName())) {
+		if (e.getView().getTitle().equals(GameCommandGUI.getInstance().getName())) {
 			
 			e.setCancelled(true);
 			
@@ -34,13 +34,13 @@ public class GameCommandListener implements Listener {
 				} else if (e.getCurrentItem().getType().equals(Material.REDSTONE_BLOCK)) {
 					GameManager.setCurrentState(GameState.RESET);
 					Messager.msgPlayer("&cGame stopped.", (Player) e.getWhoClicked(), "default");
-				} else if (e.getCurrentItem().getType().equals(Material.WATCH)) {
+				} else if (e.getCurrentItem().getType().equals(Material.CLOCK)) {
 					// TODO open time set gui
 					Messager.msgPlayer("&cThe countdown clock cannot be set at this time.", (Player) e.getWhoClicked(), "default");
 				} else if (e.getCurrentItem().getType().equals(Material.ANVIL)) {
 					// TODO topic selection. (via anvil gui?)
 					Messager.msgPlayer("&cThe name of the spacecraft is not editable at this time.", (Player) e.getWhoClicked(), "default");
-				} else if (e.getCurrentItem().getType().equals(Material.REDSTONE_COMPARATOR)) {
+				} else if (e.getCurrentItem().getType().equals(Material.COMPARATOR)) {
 					if (GameAutoStartManager.isAutoStartEnabled()) {
 						GameAutoStartManager.setAutoStartEnabled(false);
 						if (GameManager.getCurrentState().equals(GameState.STARTINGSOON)) {

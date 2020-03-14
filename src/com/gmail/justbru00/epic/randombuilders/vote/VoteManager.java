@@ -33,12 +33,12 @@ public class VoteManager {
 	private static int counter = 0;
 	private static int currentPlayer = -1;
 	private static HashMap<UUID, Integer> votes = new HashMap<UUID, Integer>();
-	public static ItemStack VOTE_0 = new ItemBuilder(Material.CONCRETE).setDataValue(14).setName("&c&lHorrible").build();
-	public static ItemStack VOTE_1 = new ItemBuilder(Material.CONCRETE).setDataValue(1).setName("&6&lIrksome").build();
-	public static ItemStack VOTE_2 = new ItemBuilder(Material.CONCRETE).setDataValue(4).setName("&e&lOkayish").build();
-	public static ItemStack VOTE_3 = new ItemBuilder(Material.CONCRETE).setDataValue(5).setName("&a&lGood").build();
-	public static ItemStack VOTE_4 = new ItemBuilder(Material.CONCRETE).setDataValue(13).setName("&2&lVery Good").build();
-	public static ItemStack VOTE_5 = new ItemBuilder(Material.CONCRETE).setDataValue(3).setName("&b&lEpic").build();
+	public static ItemStack VOTE_0 = new ItemBuilder(Material.RED_CONCRETE).setDataValue(14).setName("&c&lHorrible").build();
+	public static ItemStack VOTE_1 = new ItemBuilder(Material.ORANGE_CONCRETE).setDataValue(1).setName("&6&lIrksome").build();
+	public static ItemStack VOTE_2 = new ItemBuilder(Material.YELLOW_CONCRETE).setDataValue(4).setName("&e&lOkayish").build();
+	public static ItemStack VOTE_3 = new ItemBuilder(Material.LIME_CONCRETE).setDataValue(5).setName("&a&lGood").build();
+	public static ItemStack VOTE_4 = new ItemBuilder(Material.GREEN_CONCRETE).setDataValue(13).setName("&2&lVery Good").build();
+	public static ItemStack VOTE_5 = new ItemBuilder(Material.LIGHT_BLUE_CONCRETE).setDataValue(3).setName("&b&lEpic").build();
 
 	/**
 	 * Records where this players building area is because we need to know for the teleporting later
