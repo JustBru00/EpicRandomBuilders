@@ -48,18 +48,23 @@ public class RandomItemGiver {
 		addB(materialsToChooseBetween[randomSelection]);		
 	}
 	
+	private static void addB(ArrayList<Material> materialsToChooseBetween) {
+		int randomSelection = ThreadLocalRandom.current().nextInt(0, materialsToChooseBetween.size());
+		
+		addB(materialsToChooseBetween.get(randomSelection));		
+	}
+	
 	private static void addB(String coloredBlockSuffix) {
 		ArrayList<Material> materials = new ArrayList<Material>();
 		String[] colors = {"BLACK", "BLUE", "BROWN", "WHITE", "ORANGE", "MAGENTA", "LIGHT_BLUE", "YELLOW", "LIME", "PINK",
 				"GRAY", "LIGHT_GRAY", "CYAN", "PURPLE", "GREEN", "RED"};
-		Material[] materialArray;
+		
 		// Add stuff
 		for (String s : colors) {
 			materials.add(Material.getMaterial(s + "_" + coloredBlockSuffix));
 		}
-		
-		materialArray = (Material[]) materials.toArray();
-		addB(materialArray);
+	
+		addB(materials);
 	}
 	
 	 /**

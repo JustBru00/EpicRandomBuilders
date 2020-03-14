@@ -27,7 +27,7 @@ public class InstructionsState extends BasicState {
 		
 		BukkitScheduler sched = Bukkit.getScheduler();
 		for (Player p : Bukkit.getOnlinePlayers()) {
-			Messager.sendTitle("&bEpic&fRandomBuilders", "&7&oGame idea _BlazeCraft, TheMaskedCheetah", p);
+			Messager.sendTitle("&bEpic&fRandomBuilders", "&7&oGame idea SpeedShock, TheMaskedCheetah", p);
 		}
 		
 		sched.runTaskLater(Main.getInstance(), new Runnable() {
