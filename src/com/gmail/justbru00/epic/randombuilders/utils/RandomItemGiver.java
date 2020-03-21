@@ -23,6 +23,7 @@ public class RandomItemGiver {
 	private static ArrayList<ItemStack> allTheBlocks = new ArrayList<ItemStack>();
 
 	public static void giveRandomItemsToAll() {
+		allTheBlocks.clear();
 		init();
 		for (Player p : Bukkit.getOnlinePlayers()) {
 			Inventory i = p.getInventory();
