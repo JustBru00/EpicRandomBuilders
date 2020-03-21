@@ -18,7 +18,7 @@ import org.bukkit.inventory.ItemStack;
  *
  */
 public class RandomItemGiver {
-	// Give 54 stacks of 1-10 blocks of random stuff
+	// Give 54 stacks of 1-32 blocks of random stuff
 	
 	private static ArrayList<ItemStack> allTheBlocks = new ArrayList<ItemStack>();
 
@@ -29,7 +29,7 @@ public class RandomItemGiver {
 			int x = 1;
 			while (x <= 54) {
 				ItemStack is = allTheBlocks.get(ThreadLocalRandom.current().nextInt(0, allTheBlocks.size() - 1)).clone();
-				is.setAmount(ThreadLocalRandom.current().nextInt(1, 21));
+				is.setAmount(ThreadLocalRandom.current().nextInt(1, 32));
 				
 				i.addItem(is);
 				x++;
@@ -118,7 +118,7 @@ public class RandomItemGiver {
 		addB(Material.BONE_BLOCK);
 		addB(Material.BOOKSHELF);
 		addB(Material.BRAIN_CORAL_BLOCK);
-		addB(Material.BRICK);
+		addB(Material.BRICKS);
 		addB(Material.BRICK_SLAB);
 		addB(Material.BRICK_STAIRS);
 		addB(Material.BRICK_WALL);
