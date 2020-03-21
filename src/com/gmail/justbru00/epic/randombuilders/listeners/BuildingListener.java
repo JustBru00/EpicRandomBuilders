@@ -73,7 +73,9 @@ public class BuildingListener implements Listener {
 	@EventHandler
 	public void onBlockPlace(BlockPlaceEvent e) {
 		
-		if (BuildingManager.canPlace()) {
+		if (e.getPlayer().getGameMode().equals(GameMode.CREATIVE)) {
+			return;
+		} else if (BuildingManager.canPlace()) {
 			if (MapManager.getCurrentMap().isInsideArea(e.getBlock().getLocation())) {
 				BuildingManager.addBlock(e.getBlock().getLocation());
 			} else {
@@ -84,8 +86,6 @@ public class BuildingListener implements Listener {
 		} else {
 			if (e.getPlayer().getGameMode().equals(GameMode.CREATIVE)) {
 				// uhhhh stuff?
-			} else {
-				e.setCancelled(true);
 			}
 		}
 	}

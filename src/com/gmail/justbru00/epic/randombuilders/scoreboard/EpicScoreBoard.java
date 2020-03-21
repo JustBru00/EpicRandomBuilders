@@ -29,7 +29,7 @@ public class EpicScoreBoard {
 	public ArrayList<String> fakePlayerNames = new ArrayList<String>();
 	public Scoreboard sb = Bukkit.getScoreboardManager().getMainScoreboard();
 	public Objective obj;
-	private final String[] colors = {"a", "b", "c", "d", "7.no-ip.org", "e"}; 
+	private final String[] colors = {"a", "b", "c", "d", "7mc.com", "e"}; 
 
 	public EpicScoreBoard(String _title, int _numberOfLines) {
 		title = color(_title);
