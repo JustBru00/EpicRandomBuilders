@@ -1,5 +1,10 @@
 package com.gmail.justbru00.epic.randombuilders.listeners;
 
+import java.time.Duration;
+import java.time.Instant;
+import java.util.HashMap;
+import java.util.UUID;
+
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
@@ -23,6 +28,8 @@ import com.gmail.justbru00.epic.randombuilders.utils.ItemBuilder;
  */
 public class BuildingListener implements Listener {
 	
+	public static HashMap<UUID, Instant> lastBlockDamage = new HashMap<UUID, Instant>();
+	
 	@EventHandler
 	public void onEntityChangeBlockEvent(EntityChangeBlockEvent event) {
 	    if (event.getEntityType() == EntityType.FALLING_BLOCK) {
@@ -34,12 +41,26 @@ public class BuildingListener implements Listener {
 	@EventHandler
 	public void onBlockDamage(BlockDamageEvent e) {
 		if (BuildingManager.canBreak()) {
-			if (BuildingManager.checkBlock(e.getBlock().getLocation())) {				
-				e.setCancelled(true);
-				e.getPlayer().getInventory().addItem(new ItemBuilder(e.getBlock().getType()).setDataValue(e.getBlock().getData()).build());
-				e.getBlock().setType(Material.AIR);
-				Messager.sendActionBar("&aBlock added to inventory", e.getPlayer());
-			}
+			if (lastBlockDamage.containsKey(e.getPlayer().getUniqueId())) {
+				if (BuildingManager.checkBlock(e.getBlock().getLocation()) && Duration.between(lastBlockDamage.get(e.getPlayer().getUniqueId()), Instant.now()).toMillis() >= 100) {				
+					e.setCancelled(true);
+					e.getPlayer().getInventory().addItem(new ItemBuilder(e.getBlock().getType()).setDataValue(e.getBlock().getData()).build());
+					e.getBlock().setType(Material.AIR);
+					Messager.sendActionBar("&aBlock added to inventory", e.getPlayer());
+					lastBlockDamage.put(e.getPlayer().getUniqueId(), Instant.now());
+				} else {
+					// Make player wait a short amount of time to prevent double breaking ISSUE#159
+					return;
+				}
+			} else {
+				if (BuildingManager.checkBlock(e.getBlock().getLocation())) {				
+					e.setCancelled(true);
+					e.getPlayer().getInventory().addItem(new ItemBuilder(e.getBlock().getType()).setDataValue(e.getBlock().getData()).build());
+					e.getBlock().setType(Material.AIR);
+					Messager.sendActionBar("&aBlock added to inventory", e.getPlayer());
+					lastBlockDamage.put(e.getPlayer().getUniqueId(), Instant.now());
+				}
+			}			
 		} else if (e.getPlayer().getGameMode().equals(GameMode.CREATIVE)){
 			
 		} else {

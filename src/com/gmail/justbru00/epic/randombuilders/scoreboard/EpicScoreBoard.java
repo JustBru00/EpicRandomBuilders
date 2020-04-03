@@ -31,6 +31,7 @@ public class EpicScoreBoard {
 	public Objective obj;
 	private final String[] colors = {"a", "b", "c", "d", "7mc.com", "e"}; 
 
+	@SuppressWarnings("deprecation")
 	public EpicScoreBoard(String _title, int _numberOfLines) {
 		title = color(_title);
 		numberOfLines = _numberOfLines;
