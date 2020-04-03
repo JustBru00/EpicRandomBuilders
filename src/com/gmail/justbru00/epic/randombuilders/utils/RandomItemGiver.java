@@ -226,7 +226,7 @@ public class RandomItemGiver {
 		addB(Material.MOSSY_STONE_BRICKS);
 		addB(Material.MUSHROOM_STEM);
 		addB(Material.MYCELIUM);
-		addB(Material.NETHER_BRICK);
+		addB(Material.NETHER_BRICKS);
 		addB(Material.NETHER_BRICK_FENCE);
 		addB(Material.NETHER_BRICK_SLAB);
 		addB(Material.NETHER_BRICK_STAIRS);

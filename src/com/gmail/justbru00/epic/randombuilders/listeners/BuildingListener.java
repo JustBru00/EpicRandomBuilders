@@ -35,7 +35,7 @@ public class BuildingListener implements Listener {
 	public void onBlockDamage(BlockDamageEvent e) {
 		if (BuildingManager.canBreak()) {
 			if (BuildingManager.checkBlock(e.getBlock().getLocation())) {				
-				e.setCancelled(false);
+				e.setCancelled(true);
 				e.getPlayer().getInventory().addItem(new ItemBuilder(e.getBlock().getType()).setDataValue(e.getBlock().getData()).build());
 				e.getBlock().setType(Material.AIR);
 				Messager.sendActionBar("&aBlock added to inventory", e.getPlayer());
@@ -71,8 +71,7 @@ public class BuildingListener implements Listener {
 	}
 	
 	@EventHandler
-	public void onBlockPlace(BlockPlaceEvent e) {
-		
+	public void onBlockPlace(BlockPlaceEvent e) {		
 		if (e.getPlayer().getGameMode().equals(GameMode.CREATIVE)) {
 			return;
 		} else if (BuildingManager.canPlace()) {
@@ -84,9 +83,8 @@ public class BuildingListener implements Listener {
 				return;
 			}
 		} else {
-			if (e.getPlayer().getGameMode().equals(GameMode.CREATIVE)) {
-				// uhhhh stuff?
-			}
+			e.setCancelled(true);
+			return;
 		}
 	}
 	
