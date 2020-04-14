@@ -1,5 +1,5 @@
 name: EpicRandomBuilders
-version: 0.2.1-ALPHA
+version: 0.2.2-BETA
 authors: [JustBru00, Justin Brubaker]
 main: com.gmail.justbru00.epic.randombuilders.main.Main
 api-version: 1.15

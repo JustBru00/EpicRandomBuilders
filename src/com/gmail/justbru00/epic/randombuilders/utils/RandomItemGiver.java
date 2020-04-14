@@ -207,7 +207,6 @@ public class RandomItemGiver {
 		addB(Material.IRON_ORE);
 		addB(Material.IRON_TRAPDOOR);
 		addB(Material.JACK_O_LANTERN);
-		addB(Material.JIGSAW);
 		addB(Material.JUKEBOX);
 		addB(Material.LANTERN);
 		addB(Material.LAPIS_BLOCK);
