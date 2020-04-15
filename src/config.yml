@@ -8,8 +8,6 @@ game:
   min_players: 2
   
 topics:
-  - Red Bricks
-  - Red Firetruck
   - Rocket
   - Airplane
   - Minecraft
@@ -40,7 +38,6 @@ topics:
   - Cup
   - Soda
   - Drink
-  - Roo Roo (Dog)
   - Cat
   - Pig
   - Cow
@@ -66,12 +63,11 @@ topics:
   - Book
   - Superhero
   - Bacon and Eggs
-  - Footware
+  - Shoes
   - Clothes
   - Camping
   - Internet
   - Emoji
-  - EpicRealm
   - Money
   - Bank
   - Lightbulb

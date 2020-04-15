@@ -11,6 +11,7 @@ import com.gmail.justbru00.epic.randombuilders.game.GameState;
 import com.gmail.justbru00.epic.randombuilders.listeners.BuildingListener;
 import com.gmail.justbru00.epic.randombuilders.teams.TeamManager;
 import com.gmail.justbru00.epic.randombuilders.utils.BuildingManager;
+import com.gmail.justbru00.epic.randombuilders.utils.TopicManager;
 import com.gmail.justbru00.epic.randombuilders.vote.VoteManager;
 /**
  *   This Source Code Form is subject to the terms of the Mozilla Public
@@ -51,15 +52,14 @@ public class ResetState extends BasicState {
 		VoteManager.inVotingMode = false;
 
 		TeamManager.reset();
+		TopicManager.resetTopic();
 		
 		BuildingListener.lastBlockDamage.clear();
 	}
 
 	@Override
-	public void codeOnFinish() {
-		
-		GameManager.setCurrentState(GameState.WAIT);
-		
+	public void codeOnFinish() {		
+		GameManager.setCurrentState(GameState.WAIT);		
 	}
 
 }

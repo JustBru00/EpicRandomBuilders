@@ -6,6 +6,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
+import org.bukkit.event.player.PlayerLoginEvent.Result;
 import org.bukkit.event.player.PlayerQuitEvent;
 import com.gmail.justbru00.epic.randombuilders.chat.Messager;
 import com.gmail.justbru00.epic.randombuilders.game.GameManager;
@@ -33,12 +34,9 @@ public class OnJoinAndLeaveListener implements Listener {
 	
 	@EventHandler
 	public void preJoinevent(PlayerLoginEvent e) {
-		/*if (GameManager.getCurrentState().equals(GameState.WAIT) || GameManager.getCurrentState().equals(GameState.STARTINGSOON)) { // not During a game
-			e.getPlayer().setGameMode(GameMode.SURVIVAL);
-		} else {
-			e.disallow(Result.KICK_BANNED, Messager.color("&b&l&kOoOoO &6&lSorry the game is in progress. &b&l&kOoOoO"));
-			Messager.sendBC("&c" + e.getPlayer().getName() + " tried to join the game.");
-		}*/
+		if (Bukkit.getOnlinePlayers().size() > GameManager.getMaxPlayers()) {
+			e.disallow(Result.KICK_FULL, Messager.color("&cSorry this server is full. Please wait until there are less than " + GameManager.getMaxPlayers() + " players online."));
+		}
 	}
 
 	@EventHandler

@@ -35,11 +35,10 @@ public class GameCommandListener implements Listener {
 					GameManager.setCurrentState(GameState.RESET);
 					Messager.msgPlayer("&cGame stopped.", (Player) e.getWhoClicked(), "default");
 				} else if (e.getCurrentItem().getType().equals(Material.CLOCK)) {
-					// TODO open time set gui
-					Messager.msgPlayer("&cThe countdown clock cannot be set at this time.", (Player) e.getWhoClicked(), "default");
+					Messager.msgPlayer("&cUse /settime to set the remaining time.", (Player) e.getWhoClicked(), "default");
 				} else if (e.getCurrentItem().getType().equals(Material.ANVIL)) {
 					// TODO topic selection. (via anvil gui?)
-					Messager.msgPlayer("&cThe name of the spacecraft is not editable at this time.", (Player) e.getWhoClicked(), "default");
+					Messager.msgPlayer("&cUse /settopic to change the current topic.", (Player) e.getWhoClicked(), "default");
 				} else if (e.getCurrentItem().getType().equals(Material.COMPARATOR)) {
 					if (GameAutoStartManager.isAutoStartEnabled()) {
 						GameAutoStartManager.setAutoStartEnabled(false);

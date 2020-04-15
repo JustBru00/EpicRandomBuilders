@@ -35,7 +35,7 @@ public class StartupState extends BasicState {
 		
 		if (MapManager.getCurrentMap().getSpawnLocations().size() < Bukkit.getOnlinePlayers().size()) { // Make sure every player can have an arena
 			Messager.sendTitleToAll("&cIt appears JustBru00", "&cMessed up on the map spawns");
-			Messager.sendBC("&8[&cERROR&8] &cToo many players for the current map (" + MapManager.getCurrentMap().getName() + "). Stacktrace: " + getClass().getName() + ".codeOnStart()");
+			Messager.sendBC("&8[&cERROR&8] &cToo many players for the current map (" + MapManager.getCurrentMap().getName() + "). " + getClass().getName() + ".codeOnStart()");
 		}
 		
 		// Startup

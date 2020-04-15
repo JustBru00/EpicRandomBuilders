@@ -57,7 +57,7 @@ public class VoteManager {
 	public static void removeBuild(Player p, boolean fromServerDisconnect) {
 		if (fromServerDisconnect) {
 			if (GameManager.getCurrentState().equals(GameState.BUILD)) {
-				Messager.sendTitleToAll("&6" + p.getName() + " left", "&7Their build has been removed");
+				Messager.sendBC("&6" + p.getName() + " left. &7Their build has been removed");
 			}
 		} 
 		
@@ -157,7 +157,7 @@ public class VoteManager {
 							
 							for (Player p : Bukkit.getOnlinePlayers()) {
 								Location loc = VoteManager.buildAreas.get(currentPlayer).getBuildAreaSpawn().clone();
-								p.teleport(loc.add(0, 11, 0));		// .add(0, 11, 0)							
+								p.teleport(loc.add(0, 11, 16));		// .add(0, 11, 0)							
 							}
 							
 							for (Player p : Bukkit.getOnlinePlayers()) {

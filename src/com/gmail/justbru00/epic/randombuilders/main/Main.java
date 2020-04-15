@@ -12,6 +12,7 @@ import com.gmail.justbru00.epic.randombuilders.chat.PrefixManager;
 import com.gmail.justbru00.epic.randombuilders.commands.GameCommand;
 import com.gmail.justbru00.epic.randombuilders.commands.LobbyAndHubCommand;
 import com.gmail.justbru00.epic.randombuilders.commands.SetTimeCommand;
+import com.gmail.justbru00.epic.randombuilders.commands.SetTopicCommand;
 import com.gmail.justbru00.epic.randombuilders.commands.TestLocCommand;
 import com.gmail.justbru00.epic.randombuilders.game.GameManager;
 import com.gmail.justbru00.epic.randombuilders.gui.GUIInstanceManager;
@@ -23,7 +24,6 @@ import com.gmail.justbru00.epic.randombuilders.listeners.VoteListener;
 import com.gmail.justbru00.epic.randombuilders.listeners.VotingItemProtectListener;
 import com.gmail.justbru00.epic.randombuilders.map.MapManager;
 import com.gmail.justbru00.epic.randombuilders.scoreboard.EpicScoreBoard;
-import com.gmail.justbru00.epic.randombuilders.utils.RandomItemGiver;
 import com.gmail.justbru00.epic.randombuilders.utils.TopicManager;
 import com.gmail.justbru00.epic.randombuilders.vote.VoteManager;
 /**
@@ -55,6 +55,7 @@ public class Main extends JavaPlugin {
 		getCommand("settime").setExecutor(new SetTimeCommand());
 		getCommand("lobby").setExecutor(new LobbyAndHubCommand());
 		getCommand("hub").setExecutor(new LobbyAndHubCommand());
+		getCommand("settopic").setExecutor(new SetTopicCommand());
 		
 		PluginManager pm = Bukkit.getPluginManager();
 		// REGISTER LISTENERS
