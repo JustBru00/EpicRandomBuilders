@@ -14,7 +14,7 @@ public class SetTopicCommand implements CommandExecutor {
 		
 		if (command.getName().equalsIgnoreCase("settopic")) {
 			if (sender.hasPermission("epicrandombuilders.settopic")) {
-				if (args.length != 1) {
+				if (args.length == 1) {
 					String possibleTopic = args[0];
 					if (possibleTopic.length() <= 14) {
 						TopicManager.setTopic(possibleTopic.replace('_', ' '));
